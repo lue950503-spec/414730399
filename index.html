@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redstone Capital | 紅石資本</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #050505;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            cursor: pointer;
+            font-family: sans-serif;
+        }
+
+        /* Logo 容器與動畫 */
+        .container {
+            position: relative;
+            text-align: center;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo {
+            max-width: 280px;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(230, 57, 70, 0.3));
+            animation: breathe 4s ease-in-out infinite;
+            display: block;
+        }
+
+        /* QR Code 初始隱藏 */
+        .qr-code {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            opacity: 0;
+            transition: all 0.6s ease;
+            width: 220px;
+            pointer-events: none;
+        }
+
+        /* 點擊後的狀態切換 */
+        .active .logo {
+            filter: blur(15px);
+            opacity: 0.2;
+            transform: scale(0.9);
+        }
+
+        .active .qr-code {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: auto;
+        }
+
+        @keyframes breathe {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.03); }
+        }
+
+        .hint {
+            color: #444;
+            margin-top: 20px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body onclick="document.querySelector('.container').classList.toggle('active')">
+
+    <div class="container">
+        <img src="414730399 LOGO.png" alt="Redstone Capital" class="logo">
+        
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://www.youtube.com/watch?v=dQw4w9WgXcQ" alt="QR Code" class="qr-code">
+        
+        <div class="hint">Click to Access Secure Terminal</div>
+    </div>
+
+</body>
+</html>
+
